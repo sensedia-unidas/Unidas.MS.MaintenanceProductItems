@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Unidas.Sensedia.Infra.IoC</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OuroVerde.Maintenance.Application\OuroVerde.Maintenance.Application.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Infra.Data\OuroVerde.Maintenance.Infra.Data.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>1cb96d6b-ca2e-4e7c-8629-70ca66cd1286</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Configuration\" />
+    <None Remove="Controllers\" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Dockerfile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OuroVerde.Maintenance.Infra.CrossCutting.Shared\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Application\OuroVerde.Maintenance.Application.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Infra.CrossCutting.IoC\OuroVerde.Maintenance.Infra.CrossCutting.IoC.csproj" />
+  </ItemGroup>
+</Project>
