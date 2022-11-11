@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OuroVerde.Maintenance.Application.Interface;
+using OuroVerde.Maintenance.Domain.Model;
 using System.Net;
 using static OuroVerde.Maintenance.Services.Api.Filters.HttpGlobalExceptionFilter;
 
@@ -22,7 +23,8 @@ namespace OuroVerde.Maintenance.Services.Api.Controllers
         [ProducesResponseType(typeof(JsonError), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(JsonError), (int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        [HttpGet("sendItensActived")]
+        [ProducesResponseType(typeof(ProductSalesForceViewModel), (int)HttpStatusCode.OK)]
+        [HttpPost("sendItensActived")]
         public async Task<ActionResult> sendItensActived()
         {
             return await _service.sendItensActived();
@@ -35,7 +37,8 @@ namespace OuroVerde.Maintenance.Services.Api.Controllers
         [ProducesResponseType(typeof(JsonError), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(JsonError), (int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        [HttpGet("sendTaxItensQueue")]
+        [ProducesResponseType(typeof(ProductSalesForceViewModel), (int)HttpStatusCode.OK)]
+        [HttpPost("sendTaxItensQueue")]
         public async Task<ActionResult> sendTaxItensQueue()
         {
             return await _service.sendTaxItensQueue();

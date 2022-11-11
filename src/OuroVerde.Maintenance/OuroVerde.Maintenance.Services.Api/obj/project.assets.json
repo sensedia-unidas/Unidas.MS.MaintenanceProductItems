@@ -2036,6 +2036,16 @@
           "bin/placeholder/OuroVerde.Maintenance.Domain.Core.dll": {}
         }
       },
+      "OuroVerde.Maintenance.Infra.CrossCutting.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/OuroVerde.Maintenance.Infra.CrossCutting.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OuroVerde.Maintenance.Infra.CrossCutting.Shared.dll": {}
+        }
+      },
       "OuroVerde.Maintenance.Infra.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -6119,6 +6129,11 @@
       "path": "../OuroVerde.Maintenance.Domain.Core/OuroVerde.Maintenance.Domain.Core.csproj",
       "msbuildProject": "../OuroVerde.Maintenance.Domain.Core/OuroVerde.Maintenance.Domain.Core.csproj"
     },
+    "OuroVerde.Maintenance.Infra.CrossCutting.Shared/1.0.0": {
+      "type": "project",
+      "path": "../OuroVerde.Maintenance.Infra.CrossCutting.Shared/OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj",
+      "msbuildProject": "../OuroVerde.Maintenance.Infra.CrossCutting.Shared/OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj"
+    },
     "OuroVerde.Maintenance.Infra.Data/1.0.0": {
       "type": "project",
       "path": "../OuroVerde.Maintenance.Infra.Data/OuroVerde.Maintenance.Infra.Data.csproj",
@@ -6133,8 +6148,8 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
-      "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj",
       "OuroVerde.Maintenance.Application >= 1.0.0",
+      "OuroVerde.Maintenance.Infra.CrossCutting.Shared >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0",
       "Unidas.Sensedia.Infra.IoC >= 1.0.0"
     ]
@@ -6166,14 +6181,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj": {
-              "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj"
-            },
             "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\OuroVerde.Maintenance.Application.csproj": {
               "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\OuroVerde.Maintenance.Application.csproj"
             },
             "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.IoC\\OuroVerde.Maintenance.Infra.CrossCutting.IoC.csproj": {
               "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.IoC\\OuroVerde.Maintenance.Infra.CrossCutting.IoC.csproj"
+            },
+            "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj": {
+              "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj"
             }
           }
         }
@@ -6219,16 +6234,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }
