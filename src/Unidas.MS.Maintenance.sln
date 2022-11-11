@@ -5,31 +5,35 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{19245B6D-2440-410A-8C40-D891C2C22B23}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{9E4451A7-0B6C-4D12-8357-8D75D7FCCD90}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{9E4451A7-0B6C-4D12-8357-8D75D7FCCD90}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OuroVerde.Maintenance.Services.Api", "OuroVerde.Maintenance\OuroVerde.Maintenance.Services.Api\OuroVerde.Maintenance.Services.Api.csproj", "{E4033B86-635D-402D-888E-968F32C2F5AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unidas.MS.Maintenance.Services.Api", "OuroVerde.Maintenance\OuroVerde.Maintenance.Services.Api\Unidas.MS.Maintenance.Services.Api.csproj", "{E4033B86-635D-402D-888E-968F32C2F5AD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{E55DF939-C524-4B10-874B-284247B2900E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{E55DF939-C524-4B10-874B-284247B2900E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OuroVerde.Maintenance.Application", "OuroVerde.Maintenance\OuroVerde.Maintenance.Application\OuroVerde.Maintenance.Application.csproj", "{C7FE6849-4896-4551-A348-DA6018BF2ECB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unidas.MS.Maintenance.Application", "OuroVerde.Maintenance\OuroVerde.Maintenance.Application\Unidas.MS.Maintenance.Application.csproj", "{C7FE6849-4896-4551-A348-DA6018BF2ECB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{A2DF2CED-79F6-4EDF-9EDB-EEC5D9933D9E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Domain", "4 - Domain", "{A2DF2CED-79F6-4EDF-9EDB-EEC5D9933D9E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OuroVerde.Maintenance.Domain", "OuroVerde.Maintenance\OuroVerde.Maintenance.Domain\OuroVerde.Maintenance.Domain.csproj", "{D5C67CB2-4147-4875-9372-F313346C8D27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unidas.MS.Maintenance.Domain", "OuroVerde.Maintenance\OuroVerde.Maintenance.Domain\Unidas.MS.Maintenance.Domain.csproj", "{D5C67CB2-4147-4875-9372-F313346C8D27}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OuroVerde.Maintenance.Domain.Core", "OuroVerde.Maintenance\OuroVerde.Maintenance.Domain.Core\OuroVerde.Maintenance.Domain.Core.csproj", "{6C23E4CD-0DA6-460E-B407-CF6A91DBF9F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unidas.MS.Maintenance.Domain.Core", "OuroVerde.Maintenance\OuroVerde.Maintenance.Domain.Core\Unidas.MS.Maintenance.Domain.Core.csproj", "{6C23E4CD-0DA6-460E-B407-CF6A91DBF9F3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{ECF10FDC-6588-452D-9209-7ED85642A8E5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{ECF10FDC-6588-452D-9209-7ED85642A8E5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{6B40FFC6-1720-4F04-AFE4-9F6B68408773}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 - Data", "5.1 - Data", "{6B40FFC6-1720-4F04-AFE4-9F6B68408773}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OuroVerde.Maintenance.Infra.Data", "OuroVerde.Maintenance\OuroVerde.Maintenance.Infra.Data\OuroVerde.Maintenance.Infra.Data.csproj", "{C267B599-5F44-4CF1-9D16-7B00F833E7A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unidas.MS.Maintenance.Infra.Data", "OuroVerde.Maintenance\OuroVerde.Maintenance.Infra.Data\Unidas.MS.Maintenance.Infra.Data.csproj", "{C267B599-5F44-4CF1-9D16-7B00F833E7A9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{C23410A7-DC82-48F1-9624-E96D5A0303F0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 - CrossCutting", "5.2 - CrossCutting", "{C23410A7-DC82-48F1-9624-E96D5A0303F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OuroVerde.Maintenance.Infra.CrossCutting.IoC", "OuroVerde.Maintenance\OuroVerde.Maintenance.Infra.CrossCutting.IoC\OuroVerde.Maintenance.Infra.CrossCutting.IoC.csproj", "{150FCEFC-E836-40A2-A9CE-F0B562A3DF96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unidas.MS.Maintenance.Infra.CrossCutting.IoC", "OuroVerde.Maintenance\OuroVerde.Maintenance.Infra.CrossCutting.IoC\Unidas.MS.Maintenance.Infra.CrossCutting.IoC.csproj", "{150FCEFC-E836-40A2-A9CE-F0B562A3DF96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OuroVerde.Maintenance.Infra.CrossCutting.Shared", "OuroVerde.Maintenance\OuroVerde.Maintenance.Infra.CrossCutting.Shared\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj", "{5EE3B50E-C9FD-4D4D-A6D2-AB00AB936DE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unidas.MS.Maintenance.Infra.CrossCutting.Shared", "OuroVerde.Maintenance\OuroVerde.Maintenance.Infra.CrossCutting.Shared\Unidas.MS.Maintenance.Infra.CrossCutting.Shared.csproj", "{5EE3B50E-C9FD-4D4D-A6D2-AB00AB936DE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{F4CC0D41-42E7-4DFB-B035-8E58CE631456}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unidas.MS.Maintenance", "Unidas.MS.Maintenance\Unidas.MS.Maintenance.csproj", "{92BFD405-67D8-495B-998C-F898D36E33F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +69,10 @@ Global
 		{5EE3B50E-C9FD-4D4D-A6D2-AB00AB936DE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EE3B50E-C9FD-4D4D-A6D2-AB00AB936DE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EE3B50E-C9FD-4D4D-A6D2-AB00AB936DE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92BFD405-67D8-495B-998C-F898D36E33F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92BFD405-67D8-495B-998C-F898D36E33F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92BFD405-67D8-495B-998C-F898D36E33F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92BFD405-67D8-495B-998C-F898D36E33F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +91,8 @@ Global
 		{C23410A7-DC82-48F1-9624-E96D5A0303F0} = {ECF10FDC-6588-452D-9209-7ED85642A8E5}
 		{150FCEFC-E836-40A2-A9CE-F0B562A3DF96} = {C23410A7-DC82-48F1-9624-E96D5A0303F0}
 		{5EE3B50E-C9FD-4D4D-A6D2-AB00AB936DE3} = {C23410A7-DC82-48F1-9624-E96D5A0303F0}
+		{F4CC0D41-42E7-4DFB-B035-8E58CE631456} = {19245B6D-2440-410A-8C40-D891C2C22B23}
+		{92BFD405-67D8-495B-998C-F898D36E33F9} = {F4CC0D41-42E7-4DFB-B035-8E58CE631456}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFC55F34-C469-487E-B9ED-D78E93A2FF02}

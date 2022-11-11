@@ -4159,9 +4159,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\OuroVerde.Maintenance.Domain.Core.csproj",
-      "projectName": "OuroVerde.Maintenance.Domain.Core",
-      "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\OuroVerde.Maintenance.Domain.Core.csproj",
+      "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\Unidas.MS.Maintenance.Domain.Core.csproj",
+      "projectName": "Unidas.MS.Maintenance.Domain.Core",
+      "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\Unidas.MS.Maintenance.Domain.Core.csproj",
       "packagesPath": "C:\\Users\\crisj\\.nuget\\packages\\",
       "outputPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\obj\\",
       "projectStyle": "PackageReference",

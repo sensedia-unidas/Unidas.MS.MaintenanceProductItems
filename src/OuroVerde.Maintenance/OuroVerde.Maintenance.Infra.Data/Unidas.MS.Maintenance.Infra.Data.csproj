@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OuroVerde.Maintenance.Domain\OuroVerde.Maintenance.Domain.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Domain\Unidas.MS.Maintenance.Domain.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

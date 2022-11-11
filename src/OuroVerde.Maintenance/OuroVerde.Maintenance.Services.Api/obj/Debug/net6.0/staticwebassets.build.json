@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "YU+DAqI9SXOftG+tQs+hgfISK63TsUbWw+Bw4wI+Glo=",
-  "Source": "OuroVerde.Maintenance.Services.Api",
-  "BasePath": "_content/OuroVerde.Maintenance.Services.Api",
+  "Hash": "ixiUAtAYgO/dBPgIUUoF3hOYMThwUtigTnVJuc9+RD4=",
+  "Source": "Unidas.MS.Maintenance.Services.Api",
+  "BasePath": "_content/Unidas.MS.Maintenance.Services.Api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

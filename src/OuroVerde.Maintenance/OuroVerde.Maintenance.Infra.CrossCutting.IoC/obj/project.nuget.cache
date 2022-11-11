@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pXTIDkGWlWMHjDT5J67hZfIxpMT/XPfgKlidV7jus7WbS8IzQu0cDjFt3PWmVyORdIXsLezDMDI71TaBq8lWIA==",
+  "dgSpecHash": "/Zh+IYb0d0oiMTdVpNpXzj6RZyfwY7KMcfPaUbL33IMIqCY/xqEuo12lvoCn/7I+d/G5DD8FR8lKz/XE2ZLFMg==",
   "success": true,
-  "projectFilePath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.IoC\\OuroVerde.Maintenance.Infra.CrossCutting.IoC.csproj",
+  "projectFilePath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.IoC\\Unidas.MS.Maintenance.Infra.CrossCutting.IoC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\crisj\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\crisj\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",

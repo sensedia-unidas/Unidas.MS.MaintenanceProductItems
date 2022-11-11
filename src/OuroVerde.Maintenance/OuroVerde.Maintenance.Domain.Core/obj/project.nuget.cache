@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MNRx/b56JZLkxtkoOpEy3RzlHHGuxPFlu+1iSPqERf6IVw4Y5MOXZVEuRRYdQ4KVUpINEi3GCB+/+ewZSeqqZQ==",
+  "dgSpecHash": "cCaTq4ZPGWWeskxm7++HjzD1N+zVhPeieBSm/ZAuL6UVXOY7+aebLNJM7SCM6y9QEfr7k+7pno7sJO22Q2selg==",
   "success": true,
-  "projectFilePath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\OuroVerde.Maintenance.Domain.Core.csproj",
+  "projectFilePath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\Unidas.MS.Maintenance.Domain.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\crisj\\.nuget\\packages\\fluentvalidation\\11.2.2\\fluentvalidation.11.2.2.nupkg.sha512",
     "C:\\Users\\crisj\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",

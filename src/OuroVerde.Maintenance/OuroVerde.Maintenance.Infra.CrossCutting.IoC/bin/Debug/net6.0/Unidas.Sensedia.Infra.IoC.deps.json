@@ -9,8 +9,8 @@
       "Unidas.Sensedia.Infra.IoC/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
-          "OuroVerde.Maintenance.Application": "1.0.0",
-          "OuroVerde.Maintenance.Infra.Data": "1.0.0"
+          "Unidas.MS.Maintenance.Application": "1.0.0",
+          "Unidas.MS.Maintenance.Infra.Data": "1.0.0"
         },
         "runtime": {
           "Unidas.Sensedia.Infra.IoC.dll": {}
@@ -1031,28 +1031,28 @@
           }
         }
       },
-      "OuroVerde.Maintenance.Application/1.0.0": {
+      "Unidas.MS.Maintenance.Application/1.0.0": {
         "dependencies": {
           "AutoMapper": "12.0.0",
           "FluentValidation": "11.2.2",
           "Newtonsoft.Json": "13.0.1",
-          "OuroVerde.Maintenance.Domain": "1.0.0",
-          "OuroVerde.Maintenance.Infra.Data": "1.0.0"
+          "Unidas.MS.Maintenance.Domain": "1.0.0",
+          "Unidas.MS.Maintenance.Infra.Data": "1.0.0"
         },
         "runtime": {
-          "OuroVerde.Maintenance.Application.dll": {}
+          "Unidas.MS.Maintenance.Application.dll": {}
         }
       },
-      "OuroVerde.Maintenance.Domain/1.0.0": {
+      "Unidas.MS.Maintenance.Domain/1.0.0": {
         "dependencies": {
           "FluentValidation.AspNetCore": "11.2.2",
-          "OuroVerde.Maintenance.Domain.Core": "1.0.0"
+          "Unidas.MS.Maintenance.Domain.Core": "1.0.0"
         },
         "runtime": {
-          "OuroVerde.Maintenance.Domain.dll": {}
+          "Unidas.MS.Maintenance.Domain.dll": {}
         }
       },
-      "OuroVerde.Maintenance.Domain.Core/1.0.0": {
+      "Unidas.MS.Maintenance.Domain.Core/1.0.0": {
         "dependencies": {
           "FluentValidation": "11.2.2",
           "MediatR": "11.0.0",
@@ -1060,18 +1060,18 @@
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
         },
         "runtime": {
-          "OuroVerde.Maintenance.Domain.Core.dll": {}
+          "Unidas.MS.Maintenance.Domain.Core.dll": {}
         }
       },
-      "OuroVerde.Maintenance.Infra.Data/1.0.0": {
+      "Unidas.MS.Maintenance.Infra.Data/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
           "Newtonsoft.Json": "13.0.1",
-          "OuroVerde.Maintenance.Domain": "1.0.0"
+          "Unidas.MS.Maintenance.Domain": "1.0.0"
         },
         "runtime": {
-          "OuroVerde.Maintenance.Infra.Data.dll": {}
+          "Unidas.MS.Maintenance.Infra.Data.dll": {}
         }
       }
     }
@@ -1859,22 +1859,22 @@
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
     },
-    "OuroVerde.Maintenance.Application/1.0.0": {
+    "Unidas.MS.Maintenance.Application/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "OuroVerde.Maintenance.Domain/1.0.0": {
+    "Unidas.MS.Maintenance.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "OuroVerde.Maintenance.Domain.Core/1.0.0": {
+    "Unidas.MS.Maintenance.Domain.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "OuroVerde.Maintenance.Infra.Data/1.0.0": {
+    "Unidas.MS.Maintenance.Infra.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

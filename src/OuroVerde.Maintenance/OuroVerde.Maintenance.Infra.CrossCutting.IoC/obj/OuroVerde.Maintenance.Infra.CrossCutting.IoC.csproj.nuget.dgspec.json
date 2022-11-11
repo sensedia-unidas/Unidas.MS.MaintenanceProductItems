@@ -4,12 +4,12 @@
     "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.IoC\\OuroVerde.Maintenance.Infra.CrossCutting.IoC.csproj": {}
   },
   "projects": {
-    "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\OuroVerde.Maintenance.Application.csproj": {
+    "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\Unidas.MS.Maintenance.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\OuroVerde.Maintenance.Application.csproj",
-        "projectName": "OuroVerde.Maintenance.Application",
-        "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\OuroVerde.Maintenance.Application.csproj",
+        "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\Unidas.MS.Maintenance.Application.csproj",
+        "projectName": "Unidas.MS.Maintenance.Application",
+        "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\Unidas.MS.Maintenance.Application.csproj",
         "packagesPath": "C:\\Users\\crisj\\.nuget\\packages\\",
         "outputPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\obj\\",
         "projectStyle": "PackageReference",
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\OuroVerde.Maintenance.Domain.csproj": {
-                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\OuroVerde.Maintenance.Domain.csproj"
+              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\Unidas.MS.Maintenance.Domain.csproj": {
+                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\Unidas.MS.Maintenance.Domain.csproj"
               },
-              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\OuroVerde.Maintenance.Infra.Data.csproj": {
-                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\OuroVerde.Maintenance.Infra.Data.csproj"
+              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\Unidas.MS.Maintenance.Infra.Data.csproj": {
+                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\Unidas.MS.Maintenance.Infra.Data.csproj"
               }
             }
           }
@@ -80,12 +80,12 @@
         }
       }
     },
-    "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\OuroVerde.Maintenance.Domain.Core.csproj": {
+    "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\Unidas.MS.Maintenance.Domain.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\OuroVerde.Maintenance.Domain.Core.csproj",
-        "projectName": "OuroVerde.Maintenance.Domain.Core",
-        "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\OuroVerde.Maintenance.Domain.Core.csproj",
+        "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\Unidas.MS.Maintenance.Domain.Core.csproj",
+        "projectName": "Unidas.MS.Maintenance.Domain.Core",
+        "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\Unidas.MS.Maintenance.Domain.Core.csproj",
         "packagesPath": "C:\\Users\\crisj\\.nuget\\packages\\",
         "outputPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\obj\\",
         "projectStyle": "PackageReference",
@@ -153,12 +153,12 @@
         }
       }
     },
-    "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\OuroVerde.Maintenance.Domain.csproj": {
+    "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\Unidas.MS.Maintenance.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\OuroVerde.Maintenance.Domain.csproj",
-        "projectName": "OuroVerde.Maintenance.Domain",
-        "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\OuroVerde.Maintenance.Domain.csproj",
+        "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\Unidas.MS.Maintenance.Domain.csproj",
+        "projectName": "Unidas.MS.Maintenance.Domain",
+        "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\Unidas.MS.Maintenance.Domain.csproj",
         "packagesPath": "C:\\Users\\crisj\\.nuget\\packages\\",
         "outputPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\obj\\",
         "projectStyle": "PackageReference",
@@ -177,8 +177,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\OuroVerde.Maintenance.Domain.Core.csproj": {
-                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\OuroVerde.Maintenance.Domain.Core.csproj"
+              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\Unidas.MS.Maintenance.Domain.Core.csproj": {
+                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\Unidas.MS.Maintenance.Domain.Core.csproj"
               }
             }
           }
@@ -242,11 +242,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\OuroVerde.Maintenance.Application.csproj": {
-                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\OuroVerde.Maintenance.Application.csproj"
+              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\Unidas.MS.Maintenance.Application.csproj": {
+                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Application\\Unidas.MS.Maintenance.Application.csproj"
               },
-              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\OuroVerde.Maintenance.Infra.Data.csproj": {
-                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\OuroVerde.Maintenance.Infra.Data.csproj"
+              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\Unidas.MS.Maintenance.Infra.Data.csproj": {
+                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\Unidas.MS.Maintenance.Infra.Data.csproj"
               }
             }
           }
@@ -286,12 +286,12 @@
         }
       }
     },
-    "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\OuroVerde.Maintenance.Infra.Data.csproj": {
+    "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\Unidas.MS.Maintenance.Infra.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\OuroVerde.Maintenance.Infra.Data.csproj",
-        "projectName": "OuroVerde.Maintenance.Infra.Data",
-        "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\OuroVerde.Maintenance.Infra.Data.csproj",
+        "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\Unidas.MS.Maintenance.Infra.Data.csproj",
+        "projectName": "Unidas.MS.Maintenance.Infra.Data",
+        "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\Unidas.MS.Maintenance.Infra.Data.csproj",
         "packagesPath": "C:\\Users\\crisj\\.nuget\\packages\\",
         "outputPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\obj\\",
         "projectStyle": "PackageReference",
@@ -310,8 +310,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\OuroVerde.Maintenance.Domain.csproj": {
-                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\OuroVerde.Maintenance.Domain.csproj"
+              "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\Unidas.MS.Maintenance.Domain.csproj": {
+                "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\Unidas.MS.Maintenance.Domain.csproj"
               }
             }
           }

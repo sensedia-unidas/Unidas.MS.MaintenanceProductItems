@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VoKlzUBFE3dNhPPjYNanQn4VdPsk+ETgD8Yr0UVI1zXsu+DnRXSOVgGEGr2ZcONiLWHLLHA7AKMQwfsaeKrbrg==",
+  "dgSpecHash": "TvjomfjSw2hE++DQKCHLcF79L4cHdPRX/disNEuw5CRXUome7p0VDPN4xsPamP4DDPhYxIqqSa0TntMGb+NtVg==",
   "success": true,
-  "projectFilePath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj",
+  "projectFilePath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\Unidas.MS.Maintenance.Infra.CrossCutting.Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

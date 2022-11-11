@@ -1290,7 +1290,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "OuroVerde.Maintenance.Domain.Core/1.0.0": {
+      "Unidas.MS.Maintenance.Domain.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -1300,10 +1300,10 @@
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
         },
         "compile": {
-          "bin/placeholder/OuroVerde.Maintenance.Domain.Core.dll": {}
+          "bin/placeholder/Unidas.MS.Maintenance.Domain.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/OuroVerde.Maintenance.Domain.Core.dll": {}
+          "bin/placeholder/Unidas.MS.Maintenance.Domain.Core.dll": {}
         }
       }
     }
@@ -4233,16 +4233,16 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "OuroVerde.Maintenance.Domain.Core/1.0.0": {
+    "Unidas.MS.Maintenance.Domain.Core/1.0.0": {
       "type": "project",
-      "path": "../OuroVerde.Maintenance.Domain.Core/OuroVerde.Maintenance.Domain.Core.csproj",
-      "msbuildProject": "../OuroVerde.Maintenance.Domain.Core/OuroVerde.Maintenance.Domain.Core.csproj"
+      "path": "../OuroVerde.Maintenance.Domain.Core/Unidas.MS.Maintenance.Domain.Core.csproj",
+      "msbuildProject": "../OuroVerde.Maintenance.Domain.Core/Unidas.MS.Maintenance.Domain.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "FluentValidation.AspNetCore >= 11.2.2",
-      "OuroVerde.Maintenance.Domain.Core >= 1.0.0"
+      "Unidas.MS.Maintenance.Domain.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4251,9 +4251,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\OuroVerde.Maintenance.Domain.csproj",
-      "projectName": "OuroVerde.Maintenance.Domain",
-      "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\OuroVerde.Maintenance.Domain.csproj",
+      "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\Unidas.MS.Maintenance.Domain.csproj",
+      "projectName": "Unidas.MS.Maintenance.Domain",
+      "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\Unidas.MS.Maintenance.Domain.csproj",
       "packagesPath": "C:\\Users\\crisj\\.nuget\\packages\\",
       "outputPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain\\obj\\",
       "projectStyle": "PackageReference",
@@ -4272,8 +4272,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\OuroVerde.Maintenance.Domain.Core.csproj": {
-              "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\OuroVerde.Maintenance.Domain.Core.csproj"
+            "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\Unidas.MS.Maintenance.Domain.Core.csproj": {
+              "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Domain.Core\\Unidas.MS.Maintenance.Domain.Core.csproj"
             }
           }
         }

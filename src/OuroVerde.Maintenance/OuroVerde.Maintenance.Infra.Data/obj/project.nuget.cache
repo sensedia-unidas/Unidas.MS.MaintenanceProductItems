@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NyfkFONF+MoyaZ5UsvktXw2HUdVXEmqXF/WxlmfhjocCdCTwT5Nw82PWxoE23bwE2skc41tDgCuwAE/meAqf3w==",
+  "dgSpecHash": "jhGYufnF5YacUcRC/BVFrF+djijO64noNnPT2qGw0AMP1fzY30ILc1411yZjKcmlMrpbqGIRA0siEYYqXM+JAQ==",
   "success": true,
-  "projectFilePath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\OuroVerde.Maintenance.Infra.Data.csproj",
+  "projectFilePath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.Data\\Unidas.MS.Maintenance.Infra.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\crisj\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\crisj\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

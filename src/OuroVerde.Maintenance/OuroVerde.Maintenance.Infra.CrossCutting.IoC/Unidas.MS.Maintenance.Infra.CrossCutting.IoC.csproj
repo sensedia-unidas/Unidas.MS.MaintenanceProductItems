@@ -12,7 +12,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OuroVerde.Maintenance.Application\OuroVerde.Maintenance.Application.csproj" />
-    <ProjectReference Include="..\OuroVerde.Maintenance.Infra.Data\OuroVerde.Maintenance.Infra.Data.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Application\Unidas.MS.Maintenance.Application.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Infra.Data\Unidas.MS.Maintenance.Infra.Data.csproj" />
   </ItemGroup>
 </Project>

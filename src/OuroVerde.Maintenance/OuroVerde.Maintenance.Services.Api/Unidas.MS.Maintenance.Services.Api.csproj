@@ -23,8 +23,8 @@
     <Folder Include="Configuration\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OuroVerde.Maintenance.Application\OuroVerde.Maintenance.Application.csproj" />
-    <ProjectReference Include="..\OuroVerde.Maintenance.Infra.CrossCutting.IoC\OuroVerde.Maintenance.Infra.CrossCutting.IoC.csproj" />
-    <ProjectReference Include="..\OuroVerde.Maintenance.Infra.CrossCutting.Shared\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Application\Unidas.MS.Maintenance.Application.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Infra.CrossCutting.IoC\Unidas.MS.Maintenance.Infra.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Infra.CrossCutting.Shared\Unidas.MS.Maintenance.Infra.CrossCutting.Shared.csproj" />
   </ItemGroup>
 </Project>

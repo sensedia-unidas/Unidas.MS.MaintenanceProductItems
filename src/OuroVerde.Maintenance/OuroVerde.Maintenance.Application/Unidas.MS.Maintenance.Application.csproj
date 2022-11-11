@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -14,8 +14,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OuroVerde.Maintenance.Domain\OuroVerde.Maintenance.Domain.csproj" />
-    <ProjectReference Include="..\OuroVerde.Maintenance.Infra.Data\OuroVerde.Maintenance.Infra.Data.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Domain\Unidas.MS.Maintenance.Domain.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Infra.Data\Unidas.MS.Maintenance.Infra.Data.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />

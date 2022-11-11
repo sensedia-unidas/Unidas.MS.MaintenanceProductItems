@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj",
-      "projectName": "OuroVerde.Maintenance.Infra.CrossCutting.Shared",
-      "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\OuroVerde.Maintenance.Infra.CrossCutting.Shared.csproj",
+      "projectUniqueName": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\Unidas.MS.Maintenance.Infra.CrossCutting.Shared.csproj",
+      "projectName": "Unidas.MS.Maintenance.Infra.CrossCutting.Shared",
+      "projectPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\Unidas.MS.Maintenance.Infra.CrossCutting.Shared.csproj",
       "packagesPath": "C:\\Users\\crisj\\.nuget\\packages\\",
       "outputPath": "D:\\Trabalho\\Unidas\\Unidas.MS.MaintenanceProductItems\\src\\OuroVerde.Maintenance\\OuroVerde.Maintenance.Infra.CrossCutting.Shared\\obj\\",
       "projectStyle": "PackageReference",
