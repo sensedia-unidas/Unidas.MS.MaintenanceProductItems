@@ -16,8 +16,8 @@ namespace Unidas.MS.Maintenance.Infra.Data.Queue
         public QueueConnectorAdapter(IConfiguration configuration)
         {
             _configuration = configuration;
-            ServiceBusConnectionString = _configuration.GetConnectionString("");
-            QueueName = _configuration.GetConnectionString("");
+            ServiceBusConnectionString = _configuration.GetSection("Service_BUS:PrimaryConnection").Value;
+            QueueName = _configuration.GetSection("Service_BUS:QueueName").Value;
         }
 
         protected QueueConnectorAdapter()
@@ -28,28 +28,35 @@ namespace Unidas.MS.Maintenance.Infra.Data.Queue
         public async Task<List<T>> ConsumeMessageObject<T>(string sbConnectionString, 
                                                      string sbQueueName)
         {
+            List<T> objSerialize = null;
+
             await using var client = new ServiceBusClient(sbConnectionString);
             ServiceBusReceiver receiver = client.CreateReceiver(sbQueueName);
 
             var messages = await receiver.ReceiveMessageAsync();
-            var body = Encoding.UTF8.GetString(messages.Body);
 
-            List<T> objSerialize = null;
-            objSerialize.Add(JsonConvert.DeserializeObject<T>(body));
+            if (messages != null)
+            {
+                var body = Encoding.UTF8.GetString(messages.Body);
+                objSerialize.Add(JsonConvert.DeserializeObject<T>(body));
+            }
 
             return objSerialize;
         }
 
         public async Task<List<T>> ConsumeMessageObject<T>()
         {
+            List<T> objSerialize = null;
             await using var client = new ServiceBusClient(ServiceBusConnectionString);
             ServiceBusReceiver receiver = client.CreateReceiver(QueueName);
 
             var messages = await receiver.ReceiveMessageAsync();
-            var body = Encoding.UTF8.GetString(messages.Body);
 
-            List<T> objSerialize = null;
-            objSerialize.Add(JsonConvert.DeserializeObject<T>(body));
+            if (messages != null)
+            {
+                var body = Encoding.UTF8.GetString(messages.Body);
+                objSerialize.Add(JsonConvert.DeserializeObject<T>(body));
+            }
 
             return objSerialize;
         }

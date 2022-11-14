@@ -1,4 +1,4 @@
-﻿using OuroVerde.Maintenance.Infra.CrossCutting.IoC;
+﻿using Unidas.MS.Maintenance.Infra.CrossCutting.IoC;
 
 namespace OuroVerde.Maintenance.Services.Api.Configuration
 {

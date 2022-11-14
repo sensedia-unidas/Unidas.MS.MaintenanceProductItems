@@ -18,19 +18,16 @@ namespace Unidas.MS.Maintenance.Application.AppServices
     public class ItensIntegrationService : IItensIntegrationService
     {
         private readonly IMapper _mapper;
-        private readonly IMediatorHandler _mediator;
         private readonly IQueueConnectorAdapter _queueConnectorAdapter;
         private readonly ILogger<ItensIntegrationService> _logger;
 
         private readonly AppSettings _appSettings;
 
         public ItensIntegrationService(IMapper mapper,
-                                       IMediatorHandler mediator,
                                        IQueueConnectorAdapter queueConnectorAdapter,
                                        ILogger<ItensIntegrationService> logger)
         {
             _mapper = mapper;
-            _mediator = mediator;
             _queueConnectorAdapter = queueConnectorAdapter;
             _logger = logger;
         }

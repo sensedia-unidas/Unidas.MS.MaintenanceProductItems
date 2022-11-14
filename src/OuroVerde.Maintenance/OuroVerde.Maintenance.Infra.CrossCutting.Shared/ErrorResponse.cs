@@ -1,4 +1,4 @@
-﻿namespace OuroVerde.Maintenance.Infra.CrossCutting.Shared
+﻿namespace Unidas.MS.Maintenance.Infra.CrossCutting.Shared
 {
     public class ErrorResponse
     {
