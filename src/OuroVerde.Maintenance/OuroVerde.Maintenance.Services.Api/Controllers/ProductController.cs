@@ -39,9 +39,9 @@ namespace OuroVerde.Maintenance.Services.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         [ProducesResponseType(typeof(ProductSalesForceViewModel), (int)HttpStatusCode.OK)]
         [HttpPost("sendTaxItensQueue")]
-        public async Task<ActionResult> sendTaxItensQueue()
+        public async Task<ActionResult> sendItensQueue()
         {
-            return await _service.sendTaxItensQueue();
+            return await _service.sendItensQueue();
         }
 
     }

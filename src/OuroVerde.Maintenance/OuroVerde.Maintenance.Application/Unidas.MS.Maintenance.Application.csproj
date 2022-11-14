@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OuroVerde.Maintenance.Domain\Unidas.MS.Maintenance.Domain.csproj" />
+    <ProjectReference Include="..\OuroVerde.Maintenance.Infra.CrossCutting.Shared\Unidas.MS.Maintenance.Infra.CrossCutting.Shared.csproj" />
     <ProjectReference Include="..\OuroVerde.Maintenance.Infra.Data\Unidas.MS.Maintenance.Infra.Data.csproj" />
   </ItemGroup>
   <ItemGroup>

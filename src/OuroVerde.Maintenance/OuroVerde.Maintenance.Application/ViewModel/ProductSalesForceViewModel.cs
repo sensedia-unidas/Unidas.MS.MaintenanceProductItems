@@ -98,6 +98,9 @@ namespace OuroVerde.Maintenance.Domain.Model
         [JsonProperty("tax")]
         public bool Tax { get; set; }
 
+        public bool Stopped { get; set; }
+        public bool StoppedQuotation { get; set; }
+
         [ScaffoldColumn(false)]
         public List<EaiVwConsultarItemSubMarca2> Configurations { get; set; }
         

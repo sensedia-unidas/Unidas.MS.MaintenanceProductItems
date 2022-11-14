@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unidas.MS.Maintenance.Infra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{F4CC0D41-42E7-4DFB-B035-8E58CE631456}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unidas.MS.Maintenance", "Unidas.MS.Maintenance\Unidas.MS.Maintenance.csproj", "{92BFD405-67D8-495B-998C-F898D36E33F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unidas.MS.Maintenance.Consumer", "Unidas.MS.Maintenance\Unidas.MS.Maintenance.Consumer.csproj", "{92BFD405-67D8-495B-998C-F898D36E33F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
