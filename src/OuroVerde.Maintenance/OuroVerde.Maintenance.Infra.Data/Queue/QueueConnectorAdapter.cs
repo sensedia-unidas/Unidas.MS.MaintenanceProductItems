@@ -39,6 +39,8 @@ namespace Unidas.MS.Maintenance.Infra.Data.Queue
             {
                 var body = Encoding.UTF8.GetString(messages.Body);
                 objSerialize.Add(JsonConvert.DeserializeObject<T>(body));
+
+                await receiver.CompleteMessageAsync(messages);
             }
 
             return objSerialize;
@@ -56,7 +58,9 @@ namespace Unidas.MS.Maintenance.Infra.Data.Queue
             {
                 var body = Encoding.UTF8.GetString(messages.Body);
                 objSerialize.Add(JsonConvert.DeserializeObject<T>(body));
-            }
+
+                await receiver.CompleteMessageAsync(messages);
+            }            
 
             return objSerialize;
         }
