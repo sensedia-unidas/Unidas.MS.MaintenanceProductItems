@@ -23,7 +23,7 @@ namespace OuroVerde.Maintenance.Services.Api.Controllers
         [ProducesResponseType(typeof(JsonError), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(JsonError), (int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        [ProducesResponseType(typeof(ProductSalesForceViewModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ItensIntegrationLogViewModel), (int)HttpStatusCode.OK)]
         [HttpPost("sendItensActived")]
         public async Task<ActionResult> sendItensActived()
         {
@@ -38,7 +38,7 @@ namespace OuroVerde.Maintenance.Services.Api.Controllers
         [ProducesResponseType(typeof(JsonError), (int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         [ProducesResponseType(typeof(ProductSalesForceViewModel), (int)HttpStatusCode.OK)]
-        [HttpPost("sendTaxItensQueue")]
+        [HttpPost("sendItensQueue")]
         public async Task<ActionResult> sendItensQueue()
         {
             return await _service.sendItensQueue();
