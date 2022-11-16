@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace OuroVerde.Maintenance.Services.Api.Configuration
+namespace Unidas.MS.Maintenance.Services.Api.Configuration
 {
     /// <summary>
     /// 

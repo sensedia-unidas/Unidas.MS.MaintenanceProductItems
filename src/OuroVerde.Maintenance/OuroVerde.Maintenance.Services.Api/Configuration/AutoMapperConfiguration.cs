@@ -1,6 +1,6 @@
 ﻿using OuroVerde.Maintenance.Application.AutoMapper;
 
-namespace OuroVerde.Maintenance.Services.Api.Configuration
+namespace Unidas.MS.Maintenance.Services.Api.Configuration
 {
     public static class AutoMapperConfiguration
     {

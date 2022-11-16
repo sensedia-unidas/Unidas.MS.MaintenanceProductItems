@@ -1,6 +1,6 @@
 ﻿using Unidas.MS.Maintenance.Infra.CrossCutting.IoC;
 
-namespace OuroVerde.Maintenance.Services.Api.Configuration
+namespace Unidas.MS.Maintenance.Services.Api.Configuration
 {
     public static class DependecyConfiguration
     {
