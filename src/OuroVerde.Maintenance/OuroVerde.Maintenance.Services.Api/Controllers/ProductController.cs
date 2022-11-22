@@ -2,6 +2,7 @@
 using OuroVerde.Maintenance.Application.Interface;
 using OuroVerde.Maintenance.Domain.Model;
 using System.Net;
+using Unidas.MS.Maintenance.Application.ViewModel;
 using static OuroVerde.Maintenance.Services.Api.Filters.HttpGlobalExceptionFilter;
 
 namespace OuroVerde.Maintenance.Services.Api.Controllers

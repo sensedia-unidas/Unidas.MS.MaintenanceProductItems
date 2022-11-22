@@ -1,8 +1,9 @@
-﻿using System.Diagnostics.Eventing.Reader;
+﻿using OuroVerde.Maintenance.Domain.Core.Domain;
+using System.Diagnostics.Eventing.Reader;
 
 namespace OuroVerde.Maintenance.Domain.Model
 {
-    public class ItensIntegrationLog
+    public class ItensIntegrationLog: Entity
     {
         public ItensIntegrationLog(int id,
             string idSalesForce,

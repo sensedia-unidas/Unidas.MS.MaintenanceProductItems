@@ -2,7 +2,7 @@
 
 namespace OuroVerde.Maintenance.Domain.Adapters.Repository
 {
-    public interface IItensIntegrationRepository
+    public interface IItensIntegrationRepository: IRepositoryBase<ItensIntegrationLog>
     {
         Task<List<ProductSalesForce>> SendOperationalServicesToProduct();
         Task InsertItensInLog(ItensIntegrationLog log);

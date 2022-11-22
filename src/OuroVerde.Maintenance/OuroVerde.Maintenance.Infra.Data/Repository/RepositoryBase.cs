@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OuroVerde.Maintenance.Domain.Adapters.Repository;
+using OuroVerde.Maintenance.Domain.Core.Domain;
 using OuroVerde.Maintenance.Infra.Data.Context;
 
 namespace OuroVerde.Maintenance.Infra.Data.Repository
 {
-    public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
+    public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : Entity
     {
         protected readonly SensediaContext db;
         protected readonly DbSet<TEntity> dbSet;

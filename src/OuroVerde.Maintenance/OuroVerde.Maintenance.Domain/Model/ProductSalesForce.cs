@@ -1,6 +1,8 @@
-﻿namespace OuroVerde.Maintenance.Domain.Model
+﻿using OuroVerde.Maintenance.Domain.Core.Domain;
+
+namespace OuroVerde.Maintenance.Domain.Model
 {
-    public class ProductSalesForce
+    public class ProductSalesForce: Entity
     {
         public ProductSalesForce()
         {

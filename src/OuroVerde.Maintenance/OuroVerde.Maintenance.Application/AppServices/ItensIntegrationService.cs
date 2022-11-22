@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OuroVerde.Maintenance.Application.Interface;
-using OuroVerde.Maintenance.Domain.Core.Mediator;
 using OuroVerde.Maintenance.Domain.Model;
 using System.Net.Http.Headers;
 using System.Net;
@@ -11,22 +10,31 @@ using System.Text;
 using Unidas.MS.Maintenance.Domain.Adapters.Repository.Queue;
 using Microsoft.Extensions.Logging;
 using Unidas.MS.Maintenance.Infra.CrossCutting.Shared.Common;
+using Unidas.MS.Maintenance.Application.ViewModel;
+using OuroVerde.Maintenance.Domain.Adapters.Repository;
 using Microsoft.Azure.Amqp.Framing;
+using Unidas.MS.Maintenance.Application.Interface;
 
 namespace Unidas.MS.Maintenance.Application.AppServices
 {
     public class ItensIntegrationService : IItensIntegrationService
     {
+        private readonly IItensIntegrationRepository _repository;
+        private readonly ISalesForceAuthenticationService _salesForceAuthentitcation;
         private readonly IMapper _mapper;
         private readonly IQueueConnectorAdapter _queueConnectorAdapter;
         private readonly ILogger<ItensIntegrationService> _logger;
 
         private readonly AppSettings _appSettings;
 
-        public ItensIntegrationService(IMapper mapper,
+        public ItensIntegrationService(IItensIntegrationRepository repository,
+                                       ISalesForceAuthenticationService salesForceAuthentitcation,
+                                       IMapper mapper,
                                        IQueueConnectorAdapter queueConnectorAdapter,
                                        ILogger<ItensIntegrationService> logger)
         {
+            _repository = repository;
+            _salesForceAuthentitcation = salesForceAuthentitcation;
             _mapper = mapper;
             _queueConnectorAdapter = queueConnectorAdapter;
             _logger = logger;
@@ -71,29 +79,485 @@ namespace Unidas.MS.Maintenance.Application.AppServices
             return new OkResult();
         }
 
-        private async Task<string> CreateItensProduct(ProductSalesForceViewModel product, string token)
+        #region Codigo para transferência e Comunicacao com o Repositorio e Fila
+
+        private async Task<string> CreateProduct(ProductSalesForceViewModel product, string token)
         {
-            return null;
+            try
+            {
+                var client = new HttpClient
+                {
+                    BaseAddress = new Uri(_appSettings.SalesForce.Url + "Product2")
+                };
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var RecordTypeId = !product.Tax ? product.RecordTypeId : _appSettings.SalesForce.OperacionalService_RecordTypeId;
+
+                var content = new StringContent(JsonConvert.SerializeObject(new
+                {
+                    product.Name,
+                    product.ProductCode,
+                    product.Description,
+                    product.IsActive,
+                    product.Family,
+                    RecordTypeId,
+                    product.Desconto__c,
+                    product.Itens_de_serie_c,
+                    product.Preco_Publico__c,
+                    product.Subcategoria__c,
+                    product.TipoCarroceria__c,
+                    product.Configuracao__c,
+                    product.Tamanho__c,
+                    Unidade__c = product.Unidade
+                }), Encoding.UTF8, "application/json");
+
+                var response = await client.PostAsync(_appSettings.SalesForce.Url + "Product2", content);
+
+                if (response.StatusCode == HttpStatusCode.Created)
+                {
+                    var resultObject = JToken.Parse(await response.Content.ReadAsStringAsync()).Root["id"];
+
+                    var itensIntegrationViewModel = new ItensIntegrationLogViewModel()
+                    {
+                        IdSalesForce = resultObject.Root["id"].ToString(),
+                        CRMNumeroItem = product.ProductCode,
+                        CreatedDateTime = DateTime.Now,
+                        CRM_Product_RecVersion = product.ProductRecVersion,
+                        CRM_ProductTranslation_RecVersion = product.ProductTranslationRecVersion,
+                        CRM_ProductOV_RecVersion = product.ProductOvRecVersion,
+                        CRM_ProductItem_RecVersion = product.ProductItemRecVersion,
+                        CRM_Erp_RecVersion = product.ErpRecVersion,
+                        Discount = product.Desconto__c,
+                        Price = product.Preco_Publico__c,
+                        Type = product.Type,
+                        checkHierarchyChanges = product.checkHierarchyChanges,
+                        Product = 0,
+                        Stopped = false,
+                        StoppedQuotation = false
+                    };
+
+                    await _repository.InsertItensInLog(_mapper.Map<ItensIntegrationLog>(itensIntegrationViewModel));
+
+                    return resultObject.ToString();
+                }
+                else
+                {
+                    string idSalesForce = "Erro ao Integrar";
+                    bool integrated = false;
+                    var resultObject = JToken.Parse(await response.Content.ReadAsStringAsync());
+
+                    if (resultObject.First["message"].ToString().Contains("duplicates"))
+                    {
+                        string[] splitMsg = resultObject.First["message"].ToString().Split("id: ");
+                        idSalesForce = splitMsg[1];
+                        integrated = true;
+
+                        var itensIntegrationViewModel = new ItensIntegrationLogViewModel()
+                        {
+                            IdSalesForce = resultObject.Root["id"].ToString(),
+                            CRMNumeroItem = product.ProductCode,
+                            CreatedDateTime = DateTime.Now,
+                            CRM_Product_RecVersion = product.ProductRecVersion,
+                            CRM_ProductTranslation_RecVersion = product.ProductTranslationRecVersion,
+                            CRM_ProductOV_RecVersion = product.ProductOvRecVersion,
+                            CRM_ProductItem_RecVersion = product.ProductItemRecVersion,
+                            CRM_Erp_RecVersion = product.ErpRecVersion,
+                            Discount = product.Desconto__c,
+                            Price = product.Preco_Publico__c,
+                            Type = product.Type,
+                            checkHierarchyChanges = product.checkHierarchyChanges,
+                            Product = 0,
+                            Stopped = false,
+                            StoppedQuotation = false
+                        };
+
+                        await _repository.InsertItensInLog(_mapper.Map<ItensIntegrationLog>(itensIntegrationViewModel));
+                        return idSalesForce;
+                    }
+                    else
+                    {
+                        _logger.LogInformation("Falha na aplicacao ov-api-maintenance, classe ItensIntegrationService, metodo CreateProduct, para o product {product}, dando a mensagem {message}", JsonConvert.SerializeObject(product), resultObject.First["message"].ToString());
+
+                        return resultObject.First["message"].ToString() + " - " + resultObject.First["errorCode"].ToString();
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("Erro na aplicacao ov-api-maintenance, classe ItensIntegrationService, metodo CreateProduct, para o product {product}, dando a mensagem {message}", JsonConvert.SerializeObject(product), e.Message);
+
+                return e.Message;
+            }
         }
 
         private async Task<string> UpdateProduct(ProductSalesForceViewModel product, string token)
         {
-            return null;
+            try
+            {
+                var client = new HttpClient
+                {
+                    BaseAddress = new Uri(_appSettings.SalesForce.Url + "Product2")
+                };
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var RecordTypeId = !product.Tax ? product.RecordTypeId : _appSettings.SalesForce.OperacionalService_RecordTypeId;
+
+                var content = new StringContent(JsonConvert.SerializeObject(new
+                {
+                    product.Name,
+                    product.ProductCode,
+                    product.Description,
+                    product.IsActive,
+                    product.Family,
+                    RecordTypeId,
+                    product.Desconto__c,
+                    product.Itens_de_serie_c,
+                    product.Preco_Publico__c,
+                    product.Subcategoria__c,
+                    product.TipoCarroceria__c,
+                    product.Configuracao__c,
+                    product.Tamanho__c,
+                    Unidade__c = product.Unidade
+                }), Encoding.UTF8, "application/json");
+
+                var response = await client.PostAsync(_appSettings.SalesForce.Url + "Product2", content);
+
+                if (response.StatusCode == HttpStatusCode.Created)
+                {
+                    var resultObject = JToken.Parse(await response.Content.ReadAsStringAsync()).Root["id"];
+
+                    var itensIntegrationViewModel = new ItensIntegrationLogViewModel()
+                    {
+                        IdSalesForce = resultObject.Root["id"].ToString(),
+                        CRMNumeroItem = product.ProductCode,
+                        CreatedDateTime = DateTime.Now,
+                        CRM_Product_RecVersion = product.ProductRecVersion,
+                        CRM_ProductTranslation_RecVersion = product.ProductTranslationRecVersion,
+                        CRM_ProductOV_RecVersion = product.ProductOvRecVersion,
+                        CRM_ProductItem_RecVersion = product.ProductItemRecVersion,
+                        CRM_Erp_RecVersion = product.ErpRecVersion,
+                        Discount = product.Desconto__c,
+                        Price = product.Preco_Publico__c,
+                        Type = product.Type,
+                        checkHierarchyChanges = product.checkHierarchyChanges,
+                        Product = 0,
+                        Stopped = false,
+                        StoppedQuotation = false
+                    };
+
+                    await _repository.InsertItensInLog(_mapper.Map<ItensIntegrationLog>(itensIntegrationViewModel));
+
+                    return resultObject.ToString();
+                }
+                else
+                {
+                    string idSalesForce = "Erro ao Integrar";
+                    bool integrated = false;
+                    var resultObject = JToken.Parse(await response.Content.ReadAsStringAsync());
+
+                    if (resultObject.First["message"].ToString().Contains("duplicates"))
+                    {
+                        string[] splitMsg = resultObject.First["message"].ToString().Split("id: ");
+                        idSalesForce = splitMsg[1];
+                        integrated = true;
+
+                        var itensIntegrationViewModel = new ItensIntegrationLogViewModel()
+                        {
+                            IdSalesForce = idSalesForce,
+                            CRMNumeroItem = product.ProductCode,
+                            CreatedDateTime = DateTime.Now,
+                            CRM_Product_RecVersion = product.ProductRecVersion,
+                            CRM_ProductTranslation_RecVersion = product.ProductTranslationRecVersion,
+                            CRM_ProductOV_RecVersion = product.ProductOvRecVersion,
+                            CRM_ProductItem_RecVersion = product.ProductItemRecVersion,
+                            CRM_Erp_RecVersion = product.ErpRecVersion,
+                            Discount = product.Desconto__c,
+                            Price = product.Preco_Publico__c,
+                            Type = product.Type,
+                            checkHierarchyChanges = product.checkHierarchyChanges,
+                            Product = 0,
+                            Stopped = false,
+                            Integrated = integrated,
+                            StoppedQuotation = false
+                        };
+
+                        await _repository.InsertItensInLog(_mapper.Map<ItensIntegrationLog>(itensIntegrationViewModel));
+
+                        return idSalesForce;
+                    }
+                    else
+                    {
+                        _logger.LogInformation("Falha na aplicacao ov-api-maintenance, classe ItensIntegrationService, metodo CreateProduct, para o product {product}, dando a mensagem {message}", JsonConvert.SerializeObject(product), resultObject.First["message"].ToString());
+
+                        return resultObject.First["message"].ToString() + " - " + resultObject.First["errorCode"].ToString();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("Erro na aplicacao ov-api-maintenance, classe ItensIntegrationService, metodo CreateProduct, para o product {product}, dando a mensagem {message}", JsonConvert.SerializeObject(product), e.Message);
+
+                return e.Message;
+            }
         }
 
         private async Task<string> CreateItensProduct(ProductSalesForceViewModel product)
         {
-            return null;
+            string token = _salesForceAuthentitcation.GetTokenAuthentication().Result;
+
+            return await CreateItensProduct(product, token);
+        }
+
+        private async Task<string> CreateItensProduct(ProductSalesForceViewModel product, string token)
+        {
+            try
+            {
+                if (product.Configurations.Count == 0) return string.IsNullOrEmpty(product.IdSalesForce) ? await CreateProduct(product, token) : await UpdateProduct(product, token);
+                else
+                {
+                    foreach (var item in product.Configurations)
+                    {
+                        try
+                        {
+                            var client = new HttpClient
+                            {
+                                BaseAddress = new Uri(_appSettings.SalesForce.Url + "Product2")
+                            };
+
+                            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                            var RecordTypeId = !product.Tax ? product.RecordTypeId : _appSettings.SalesForce.OperacionalService_RecordTypeId;
+
+                            var content = new StringContent(JsonConvert.SerializeObject(new
+                            {
+                                Name = product.Name + " " + item.MarcaNome + " " + item.Tamanho + " " + item.PartNumber,
+                                product.ProductCode,
+                                product.Description,
+                                product.IsActive,
+                                product.Family,
+                                RecordTypeId,
+                                product.Desconto__c,
+                                product.Itens_de_serie_c,
+                                product.Preco_Publico__c,
+                                product.Subcategoria__c,
+                                product.TipoCarroceria__c,
+                                Configuracao__c = item.MarcaId,
+                                Tamanho__c = item.Tamanho,
+                                Unidade__c = product.Unidade
+
+                            }), Encoding.UTF8, "application/json");
+
+                            var response = await client.PostAsync(_appSettings.SalesForce.Url + "Product2", content);
+
+                            if (response.StatusCode == HttpStatusCode.Created)
+                            {
+                                var resultObject = JToken.Parse(await response.Content.ReadAsStringAsync()).Root["id"];
+
+                                var itensIntegrationLogViewModel = new ItensIntegrationLogViewModel()
+                                {
+                                    IdSalesForce = resultObject.Root["id"].ToString(),
+                                    CRMNumeroItem = product.ProductCode,
+                                    CreatedDateTime = DateTime.Now,
+                                    CRM_Product_RecVersion = product.ProductRecVersion,
+                                    CRM_ProductTranslation_RecVersion = product.ProductTranslationRecVersion,
+                                    CRM_ProductOV_RecVersion = product.ProductOvRecVersion,
+                                    CRM_ProductItem_RecVersion = product.ProductItemRecVersion,
+                                    CRM_Erp_RecVersion = product.ErpRecVersion,
+                                    Discount = product.Desconto__c,
+                                    Price = product.Preco_Publico__c,
+                                    Type = product.Type,
+                                    checkHierarchyChanges = product.checkHierarchyChanges,
+                                    Product = item.Product,
+                                    Configuration = item.MarcaId,
+                                    PartNumber = item.PartNumber,
+                                    Tamanho = item.Tamanho,
+                                    Stopped = false,
+                                    StoppedQuotation = false,
+                                    Integrated = true
+                                };
+
+                                await _repository.InsertItensInLog(_mapper.Map<ItensIntegrationLog>(itensIntegrationLogViewModel));
+                            }
+                            else
+                            {
+                                string idSalesForce = "Erro ao Integrar";
+                                bool integrated = false;
+                                var resultObject = JToken.Parse(await response.Content.ReadAsStringAsync());
+
+                                if (resultObject.First["message"].ToString().Contains("duplicates"))
+                                {
+                                    string[] splitMsg = resultObject.First["message"].ToString().Split("id: ");
+                                    idSalesForce = splitMsg[1];
+                                    integrated = true;
+
+                                    var itensIntegrationLogViewModel = new ItensIntegrationLogViewModel()
+                                    {
+                                        IdSalesForce = idSalesForce,
+                                        CRMNumeroItem = product.ProductCode,
+                                        CreatedDateTime = DateTime.Now,
+                                        CRM_Product_RecVersion = product.ProductRecVersion,
+                                        CRM_ProductTranslation_RecVersion = product.ProductTranslationRecVersion,
+                                        CRM_ProductOV_RecVersion = product.ProductOvRecVersion,
+                                        CRM_ProductItem_RecVersion = product.ProductItemRecVersion,
+                                        CRM_Erp_RecVersion = product.ErpRecVersion,
+                                        Discount = product.Desconto__c,
+                                        Price = product.Preco_Publico__c,
+                                        Type = product.Type,
+                                        checkHierarchyChanges = product.checkHierarchyChanges,
+                                        Product = item.Product,
+                                        Integrated = integrated,
+                                        Configuration = item.MarcaId,
+                                        PartNumber = item.PartNumber,
+                                        Tamanho = item.Tamanho,
+                                        Stopped = false,
+                                        StoppedQuotation = false
+                                    };
+
+                                    await _repository.InsertItensInLog(_mapper.Map<ItensIntegrationLog>(itensIntegrationLogViewModel));
+                                }
+                                _logger.LogInformation("Falha na aplicacao ov-api-maintenance, classe ItensIntegrationService, metodo CreateItensProduct, para o product {product}, dando a mensagem {message}", JsonConvert.SerializeObject(product), resultObject.First["message"].ToString());
+
+                                //return resultObject.First["message"].ToString() + " - " + resultObject.First["errorCode"].ToString();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.LogError("Erro na aplicacao ov-api-maintenance, classe ItensIntegrationService, metodo CreateItensProduct, para o product {product}, dando a mensagem {message}", JsonConvert.SerializeObject(product), ex.Message);
+                        }
+                    }
+                }
+                return "Sucesso";
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("Erro na aplicacao ov-api-maintenance, classe ItensIntegrationService, metodo CreateItensProduct, para o product {product}, dando a mensagem {message}", JsonConvert.SerializeObject(product), e.Message);
+
+                return e.Message;
+            }
         }
 
         private async Task<string> UpdateProduct(ProductSalesForceViewModel product)
         {
-            return null;
+            string token = _salesForceAuthentitcation.GetTokenAuthentication().Result;
+
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri(_appSettings.SalesForce.Url + "Product2")
+            };
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var RecordTypeId = !product.Tax ? product.RecordTypeId : _appSettings.SalesForce.OperacionalService_RecordTypeId;
+
+            var content = new StringContent(JsonConvert.SerializeObject(new
+            {
+                product.Name,
+                product.ProductCode,
+                product.Description,
+                product.IsActive,
+                product.Family,
+                RecordTypeId,
+                product.Desconto__c,
+                product.Itens_de_serie_c,
+                product.Preco_Publico__c,
+                product.Subcategoria__c,
+                product.TipoCarroceria__c,
+                product.Configuracao__c,
+                product.Tamanho__c,
+                Unidade__c = product.Unidade
+            }), Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync(_appSettings.SalesForce.Url + "Product2", content);
+
+            if (response.StatusCode == HttpStatusCode.Created)
+            {
+                var resultObject = JToken.Parse(await response.Content.ReadAsStringAsync()).Root["id"];
+
+                var itensIntegrationViewModel = new ItensIntegrationLogViewModel()
+                {
+                    IdSalesForce = resultObject.Root["id"].ToString(),
+                    CRMNumeroItem = product.ProductCode,
+                    CreatedDateTime = DateTime.Now,
+                    CRM_Product_RecVersion = product.ProductRecVersion,
+                    CRM_ProductTranslation_RecVersion = product.ProductTranslationRecVersion,
+                    CRM_ProductOV_RecVersion = product.ProductOvRecVersion,
+                    CRM_ProductItem_RecVersion = product.ProductItemRecVersion,
+                    CRM_Erp_RecVersion = product.ErpRecVersion,
+                    Discount = product.Desconto__c,
+                    Price = product.Preco_Publico__c,
+                    Type = product.Type,
+                    checkHierarchyChanges = product.checkHierarchyChanges,
+                    Product = 0,
+                    Stopped = false,
+                    StoppedQuotation = false
+                };
+
+                await _repository.InsertItensInLog(_mapper.Map<ItensIntegrationLog>(itensIntegrationViewModel));
+
+                return resultObject.ToString();
+            }
+            else
+            {
+                string idSalesForce = "Erro ao Integrar";
+                bool integrated = false;
+                var resultObject = JToken.Parse(await response.Content.ReadAsStringAsync());
+
+                if (resultObject.First["message"].ToString().Contains("duplicates"))
+                {
+                    string[] splitMsg = resultObject.First["message"].ToString().Split("id: ");
+                    idSalesForce = splitMsg[1];
+                    integrated = true;
+
+                    var itensIntegrationViewModel = new ItensIntegrationLogViewModel()
+                    {
+                        IdSalesForce = idSalesForce,
+                        CRMNumeroItem = product.ProductCode,
+                        CreatedDateTime = DateTime.Now,
+                        CRM_Product_RecVersion = product.ProductRecVersion,
+                        CRM_ProductTranslation_RecVersion = product.ProductTranslationRecVersion,
+                        CRM_ProductOV_RecVersion = product.ProductOvRecVersion,
+                        CRM_ProductItem_RecVersion = product.ProductItemRecVersion,
+                        CRM_Erp_RecVersion = product.ErpRecVersion,
+                        Discount = product.Desconto__c,
+                        Price = product.Preco_Publico__c,
+                        Type = product.Type,
+                        checkHierarchyChanges = product.checkHierarchyChanges,
+                        Product = 0,
+                        Stopped = false,
+                        Integrated = integrated,
+                        StoppedQuotation = false
+                    };
+
+                    await _repository.InsertItensInLog(_mapper.Map<ItensIntegrationLog>(itensIntegrationViewModel));
+
+                    return idSalesForce;
+                }
+                else
+                {
+                    _logger.LogInformation("Falha na aplicacao ov-api-maintenance, classe ItensIntegrationService, metodo CreateProduct, para o product {product}, dando a mensagem {message}", JsonConvert.SerializeObject(product), resultObject.First["message"].ToString());
+
+                    return resultObject.First["message"].ToString() + " - " + resultObject.First["errorCode"].ToString();
+                }
+            }
+        }
+
+        private async Task<string> UpdateProduct(List<ProductSalesForceViewModel> products)
+        {
+            string result = "";
+
+            foreach (var product in products)
+            {
+                await UpdateProduct(product);
+            }
+
+            return result;
         }
 
         private async Task<string> UpdateItensProductActived(ItensIntegrationLogViewModel product)
         {
-            return null;
+            string token = _salesForceAuthentitcation.GetTokenAuthentication().Result;
+
+            return await UpdateItensProductActived(product, token);
         }
 
         private async Task<string> UpdateItensProductActived(ItensIntegrationLogViewModel product, string token)
@@ -146,5 +610,7 @@ namespace Unidas.MS.Maintenance.Application.AppServices
                 return e.Message;
             }
         }
+
+        #endregion
     }
 }

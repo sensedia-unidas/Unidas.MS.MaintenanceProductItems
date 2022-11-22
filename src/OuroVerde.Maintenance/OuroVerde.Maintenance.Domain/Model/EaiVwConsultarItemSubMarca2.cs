@@ -1,6 +1,8 @@
-﻿namespace OuroVerde.Maintenance.Domain.Model
+﻿using OuroVerde.Maintenance.Domain.Core.Domain;
+
+namespace OuroVerde.Maintenance.Domain.Model
 {
-    public class EaiVwConsultarItemSubMarca2
+    public class EaiVwConsultarItemSubMarca2: Entity
     {
         public EaiVwConsultarItemSubMarca2(long partition,
                                            string dataAreaId,

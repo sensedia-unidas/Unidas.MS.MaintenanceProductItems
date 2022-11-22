@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json;
+using OuroVerde.Maintenance.Domain.Model;
 using System.ComponentModel.DataAnnotations;
 
-namespace OuroVerde.Maintenance.Domain.Model
+namespace Unidas.MS.Maintenance.Application.ViewModel
 {
     public class ProductSalesForceViewModel
     {
@@ -103,6 +104,6 @@ namespace OuroVerde.Maintenance.Domain.Model
 
         [ScaffoldColumn(false)]
         public List<EaiVwConsultarItemSubMarca2> Configurations { get; set; }
-        
+
     }
 }

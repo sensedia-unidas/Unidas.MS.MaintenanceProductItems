@@ -1,8 +1,9 @@
-﻿using System;
+﻿using OuroVerde.Maintenance.Domain.Core.Domain;
+using System;
 
 namespace OuroVerde.Maintenance.Domain.Model
 {
-    public class ServiceIntegrationLog
+    public class ServiceIntegrationLog: Entity
     {
         public ServiceIntegrationLog()
         {

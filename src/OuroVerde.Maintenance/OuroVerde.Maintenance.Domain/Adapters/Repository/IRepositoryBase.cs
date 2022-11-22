@@ -1,6 +1,8 @@
-﻿namespace OuroVerde.Maintenance.Domain.Adapters.Repository
+﻿using OuroVerde.Maintenance.Domain.Core.Domain;
+
+namespace OuroVerde.Maintenance.Domain.Adapters.Repository
 {
-    public interface IRepositoryBase<TEntity> where TEntity : class
+    public interface IRepositoryBase<TEntity> where TEntity : Entity
     {
         Task<TEntity> GetById(Guid id);
         Task<IEnumerable<TEntity>> GetAll();
